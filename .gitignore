@@ -1,0 +1,8 @@
+# Local tooling / not part of the website
+.vercel/
+.claude/
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+*.log

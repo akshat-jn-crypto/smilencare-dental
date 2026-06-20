@@ -1,0 +1,14 @@
+# Netlify configuration (used only for Git-based deploys; the
+# drag-and-drop method ignores this file and just works).
+[build]
+  publish = "."
+  command = ""
+
+# Sensible security headers for a static site.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
