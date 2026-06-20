@@ -6,3 +6,6 @@
 Thumbs.db
 .DS_Store
 *.log
+
+# temp image candidates
+assets/images/cand/
