@@ -114,6 +114,8 @@ ul { margin: 0; padding: 0; }
 .btn-primary:hover { color: #fff; box-shadow: 0 14px 32px rgba(15,179,196,.5); transform: translateY(-2px); filter: brightness(1.06); }
 .btn-accent { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; box-shadow: 0 10px 24px rgba(255, 122, 89, .4); }
 .btn-accent:hover { color: #fff; transform: translateY(-2px); filter: brightness(1.04); }
+.btn-wa { background: #25d366; color: #fff; box-shadow: 0 10px 24px rgba(37,211,102,.35); }
+.btn-wa:hover { background: #1ebe5d; color: #fff; transform: translateY(-2px); }
 .btn-ghost { background: #fff; color: var(--primary-dark); border-color: var(--border); }
 .btn-ghost:hover { border-color: var(--primary); color: var(--primary-dark); transform: translateY(-2px); }
 .btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }

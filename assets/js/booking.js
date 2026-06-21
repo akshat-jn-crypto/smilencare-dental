@@ -206,6 +206,25 @@
   }
   function clearAlert() { if (els.alert) els.alert.className = "form-alert"; }
 
+  // Build a WhatsApp link to the clinic, pre-filled with the booking details.
+  function waBookingUrl(appt) {
+    const c = window.CLINIC || {};
+    const lines = [
+      "Hello " + (c.name || "Smile'n'Care Dental Clinic") + ", I'd like to book a dental appointment:",
+      "",
+      "Name: " + appt.name,
+      "Date: " + prettyDate(appt.date),
+      "Time: " + fmt12(appt.time)
+    ];
+    if (appt.service) lines.push("Service: " + appt.service);
+    lines.push("Phone: " + appt.phone);
+    if (appt.email) lines.push("Email: " + appt.email);
+    if (appt.reason) lines.push("Reason for visit: " + appt.reason);
+    lines.push("", "Please confirm my appointment. Thank you!");
+    return "https://wa.me/" + (c.phoneIntl || "919818670489") +
+           "?text=" + encodeURIComponent(lines.join("\n"));
+  }
+
   /* ----------------------------- submit ------------------------------ */
   if (els.form) {
     els.form.addEventListener("submit", async (e) => {
@@ -237,6 +256,11 @@
         return;
       }
 
+      // Open the WhatsApp tab NOW (inside the click) so it isn't popup-blocked
+      // after the async booking call; we point it at the message on success.
+      let waTab = null;
+      try { waTab = window.open("", "_blank"); } catch (e) { waTab = null; }
+
       els.submit.disabled = true;
       const original = els.submit.textContent;
       els.submit.textContent = "Booking…";
@@ -249,9 +273,18 @@
       els.submit.textContent = original;
 
       if (!res.ok) {
+        if (waTab && !waTab.closed) waTab.close();
         showAlert("error", res.error || "Couldn't book that slot.");
         renderSlots(); // refresh in case it was just taken
         return;
+      }
+
+      // Send the patient to WhatsApp with the appointment details prefilled.
+      const waUrl = waBookingUrl(appt);
+      if (waTab && !waTab.closed) {
+        try { waTab.location.href = waUrl; } catch (e) { window.open(waUrl, "_blank"); }
+      } else {
+        window.open(waUrl, "_blank");
       }
 
       showDone(appt);
@@ -270,6 +303,8 @@
       row("Time", fmt12(appt.time)) +
       (appt.service ? row("Service", appt.service) : "") +
       row("Phone", appt.phone);
+    const waBtn = document.getElementById("doneWhatsApp");
+    if (waBtn) waBtn.href = waBookingUrl(appt);
     els.doneCard.style.display = "block";
     els.doneCard.scrollIntoView({ behavior: "smooth", block: "center" });
     function row(k, v) { return `<div class="row"><span>${k}</span><span>${v}</span></div>`; }
