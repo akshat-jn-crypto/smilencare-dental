@@ -75,6 +75,12 @@ ul { margin: 0; padding: 0; }
 .section-head p { color: var(--muted); font-size: 1.05rem; margin: 0; }
 .lead { font-size: 1.15rem; color: var(--body); }
 .text-muted { color: var(--muted); }
+/* teal highlighter marker for key names */
+.hl {
+  font-weight: 600; color: var(--primary-darker);
+  background: linear-gradient(180deg, transparent 58%, rgba(34,211,238,.32) 58%);
+  padding: 0 .16em; border-radius: 4px;
+}
 .center { text-align: center; }
 
 /* ---------------------------- buttons ------------------------------- */
