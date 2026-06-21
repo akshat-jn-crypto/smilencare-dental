@@ -193,6 +193,13 @@ ul { margin: 0; padding: 0; }
 .hero::before { width: 340px; height: 340px; right: -60px; top: -90px; background: radial-gradient(circle, rgba(34,211,238,.55), transparent 70%); }
 .hero::after  { width: 320px; height: 320px; left: -90px; bottom: -110px; background: radial-gradient(circle, rgba(255,126,176,.5), transparent 70%); }
 .hero .container { position: relative; z-index: 1; }
+
+/* tooth-scallop divider — the dental "row of teeth" signature edge */
+.tooth-divider {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 22px; z-index: 3; pointer-events: none;
+  background: url("../images/tooth-scallop.svg") repeat-x left bottom; background-size: 48px 22px;
+  filter: drop-shadow(0 -2px 2px rgba(8, 60, 70, .07));
+}
 .hero-grid {
   display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center;
   padding: clamp(48px, 7vw, 88px) 0;
@@ -413,7 +420,8 @@ ul { margin: 0; padding: 0; }
     var(--dental-motif),
     var(--grad-soft);
   background-size: auto, 280px, auto;
-  padding: clamp(40px, 6vw, 72px) 0; text-align: center; border-bottom: 1px solid var(--border);
+  padding: clamp(40px, 6vw, 72px) 0; text-align: center; border-bottom: 0;
+  position: relative; overflow: hidden;
 }
 .page-banner p { color: var(--muted); max-width: 60ch; margin: .5rem auto 0; font-size: 1.08rem; }
 .crumbs { font-size: .85rem; color: var(--muted); margin-bottom: .6rem; }
