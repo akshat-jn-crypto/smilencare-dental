@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" role="img" aria-label="Friendly cartoon tooth with a toothbrush">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18c2d3"/>
+      <stop offset="1" stop-color="#0b8a99"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff9a78"/>
+      <stop offset="1" stop-color="#ef5f3c"/>
+    </linearGradient>
+    <radialGradient id="toothshade" cx="0.42" cy="0.38" r="0.7">
+      <stop offset="0.65" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e3f4f6"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="700" height="700" fill="url(#bg)"/>
+  <g fill="#ffffff" opacity="0.10">
+    <circle cx="120" cy="150" r="72"/>
+    <circle cx="600" cy="560" r="96"/>
+    <circle cx="620" cy="130" r="42"/>
+  </g>
+  <g fill="#ffffff" opacity="0.85">
+    <path d="M150 480 l9 22 22 9 -22 9 -9 22 -9-22 -22-9 22-9z"/>
+    <path d="M560 250 l7 17 17 7 -17 7 -7 17 -7-17 -17-7 17-7z"/>
+  </g>
+
+  <!-- shadow -->
+  <ellipse cx="350" cy="552" rx="120" ry="26" fill="#063b44" opacity="0.20"/>
+
+  <!-- tooth -->
+  <path fill="url(#toothshade)" stroke="#bfe6ea" stroke-width="3" d="
+    M250,300 C250,248 286,214 350,214 C414,214 450,248 450,300
+    C450,356 442,402 432,442 C424,472 416,508 398,508
+    C384,508 379,478 372,454 C367,437 362,427 350,427
+    C338,427 333,437 328,454 C321,478 316,508 302,508
+    C284,508 276,472 268,442 C258,402 250,356 250,300 Z"/>
+
+  <!-- face -->
+  <ellipse cx="302" cy="362" rx="16" ry="11" fill="#ffb39c" opacity="0.85"/>
+  <ellipse cx="398" cy="362" rx="16" ry="11" fill="#ffb39c" opacity="0.85"/>
+  <circle cx="322" cy="324" r="14" fill="#0c2a31"/>
+  <circle cx="378" cy="324" r="14" fill="#0c2a31"/>
+  <circle cx="327" cy="319" r="4.5" fill="#fff"/>
+  <circle cx="383" cy="319" r="4.5" fill="#fff"/>
+  <path d="M318,354 Q350,392 382,354 Q370,376 350,376 Q330,376 318,354 Z" fill="#0c2a31"/>
+  <ellipse cx="350" cy="372" rx="11" ry="6" fill="#ff6f8b"/>
+
+  <!-- toothbrush, crossing in front of the tooth -->
+  <g transform="rotate(28 350 380)">
+    <rect x="150" y="392" width="250" height="30" rx="15" fill="url(#handle)"/>
+    <rect x="150" y="399" width="120" height="9" rx="4" fill="#ffffff" opacity="0.35"/>
+    <rect x="398" y="389" width="40" height="36" rx="12" fill="#cfeef1"/>
+    <rect x="432" y="380" width="86" height="54" rx="18" fill="#eafafb"/>
+    <g fill="#ffffff">
+      <rect x="446" y="356" width="11" height="28" rx="5"/>
+      <rect x="465" y="352" width="11" height="32" rx="5"/>
+      <rect x="484" y="352" width="11" height="32" rx="5"/>
+      <rect x="503" y="356" width="11" height="28" rx="5"/>
+    </g>
+  </g>
+
+  <!-- foam bubbles near the bristles -->
+  <g fill="#ffffff">
+    <circle cx="476" cy="300" r="13" opacity="0.95"/>
+    <circle cx="502" cy="278" r="9" opacity="0.9"/>
+    <circle cx="452" cy="280" r="7" opacity="0.85"/>
+    <circle cx="500" cy="318" r="6" opacity="0.8"/>
+  </g>
+
+  <!-- shine sparkle on the tooth -->
+  <path d="M298 262 l6 14 14 6 -14 6 -6 14 -6-14 -14-6 14-6z" fill="#ffffff" opacity="0.9"/>
+</svg>
