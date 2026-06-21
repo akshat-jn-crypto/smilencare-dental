@@ -319,6 +319,7 @@ ul { margin: 0; padding: 0; }
 
 /* ---------------------------- booking ------------------------------- */
 .booking-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: start; }
+.booking-wrap > * { min-width: 0; } /* let the date strip scroll inside the panel instead of stretching it */
 @media (max-width: 920px) { .booking-wrap { grid-template-columns: 1fr; } }
 .panel { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: clamp(20px, 3vw, 30px); }
 .panel h3 { margin-bottom: .25rem; }
@@ -331,9 +332,21 @@ ul { margin: 0; padding: 0; }
 .panel-head { display: flex; align-items: center; gap: .6rem; margin-bottom: 1.1rem; }
 
 /* date strip */
-.date-strip { display: flex; gap: 10px; overflow-x: auto; padding: 4px 2px 12px; scroll-snap-type: x mandatory; }
-.date-strip::-webkit-scrollbar { height: 6px; }
-.date-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+.date-strip-wrap { display: flex; align-items: center; gap: 8px; }
+.date-strip { flex: 1 1 auto; min-width: 0; display: flex; gap: 10px; overflow-x: auto; padding: 4px 2px 12px; scroll-snap-type: x proximity; scroll-behavior: smooth; }
+.date-strip::-webkit-scrollbar { height: 7px; }
+.date-strip::-webkit-scrollbar-track { background: var(--bg-soft); border-radius: 6px; }
+.date-strip::-webkit-scrollbar-thumb { background: rgba(15,179,196,.45); border-radius: 6px; }
+.date-strip::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+.date-strip { scrollbar-color: rgba(15,179,196,.55) var(--bg-soft); scrollbar-width: thin; }
+.date-nav {
+  flex: none; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--border);
+  background: #fff; color: var(--primary-dark); display: grid; place-items: center; cursor: pointer;
+  box-shadow: var(--shadow-sm); transition: border-color .15s ease, background .15s ease, transform .12s ease, opacity .15s ease;
+}
+.date-nav:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-light); transform: translateY(-1px); }
+.date-nav:disabled { opacity: .3; cursor: default; box-shadow: none; }
+.date-nav svg { width: 18px; height: 18px; }
 .date-chip {
   flex: none; scroll-snap-align: start; width: 74px; padding: 12px 6px; border-radius: var(--radius-sm);
   border: 1.5px solid var(--border); background: #fff; cursor: pointer; text-align: center;

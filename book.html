@@ -56,8 +56,16 @@
               <span id="modePill" class="mode-pill demo"><span class="dot"></span> Loading…</span>
             </div>
 
-            <p class="muted-note" style="margin-top:-.4rem">Available days only (Mon–Sat). Scroll for more dates.</p>
-            <div id="dateStrip" class="date-strip" aria-label="Available dates"></div>
+            <p class="muted-note" style="margin-top:-.4rem">Available days only (Mon–Sat). Use the arrows or swipe to see more dates.</p>
+            <div class="date-strip-wrap">
+              <button type="button" class="date-nav" id="datesPrev" aria-label="Previous dates">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div id="dateStrip" class="date-strip" aria-label="Available dates"></div>
+              <button type="button" class="date-nav" id="datesNext" aria-label="Next dates">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
 
             <div id="slotArea" style="margin-top:1.2rem">
               <p class="muted-note">Loading available times…</p>

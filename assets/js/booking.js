@@ -293,9 +293,35 @@
   function clockIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'; }
   function calIcon() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>'; }
 
+  /* ----------------------- date scroller arrows ---------------------- */
+  const prevBtn = document.getElementById("datesPrev");
+  const nextBtn = document.getElementById("datesNext");
+  function updateDateNav() {
+    if (!prevBtn || !nextBtn) return;
+    const el = els.dateStrip;
+    const overflow = el.scrollWidth - el.clientWidth;
+    if (overflow <= 1) {            // nothing to scroll → hide both
+      prevBtn.style.display = nextBtn.style.display = "none";
+      return;
+    }
+    prevBtn.style.display = nextBtn.style.display = "";
+    prevBtn.disabled = el.scrollLeft <= 1;
+    nextBtn.disabled = el.scrollLeft >= overflow - 1;
+  }
+  function scrollDates(dir) {
+    const step = Math.max(els.dateStrip.clientWidth * 0.8, 200);
+    els.dateStrip.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
+  if (prevBtn) prevBtn.addEventListener("click", () => scrollDates(-1));
+  if (nextBtn) nextBtn.addEventListener("click", () => scrollDates(1));
+  els.dateStrip.addEventListener("scroll", updateDateNav, { passive: true });
+  window.addEventListener("resize", updateDateNav);
+
   /* ------------------------------ init ------------------------------- */
   renderModePill();
   renderDates();
+  updateDateNav();
+  setTimeout(updateDateNav, 150);   // after layout/fonts settle
   // Live updates: when anyone books, refresh the current day's slots.
   store.subscribe(() => renderSlots());
   store.ready && store.ready.then(() => { renderModePill(); renderSlots(); });
