@@ -300,13 +300,13 @@
     if (!prevBtn || !nextBtn) return;
     const el = els.dateStrip;
     const overflow = el.scrollWidth - el.clientWidth;
-    if (overflow <= 1) {            // nothing to scroll → hide both
+    if (overflow <= 4) {            // nothing to scroll → hide both
       prevBtn.style.display = nextBtn.style.display = "none";
       return;
     }
     prevBtn.style.display = nextBtn.style.display = "";
-    prevBtn.disabled = el.scrollLeft <= 1;
-    nextBtn.disabled = el.scrollLeft >= overflow - 1;
+    prevBtn.disabled = el.scrollLeft <= 4;
+    nextBtn.disabled = el.scrollLeft >= overflow - 4;
   }
   function scrollDates(dir) {
     const step = Math.max(els.dateStrip.clientWidth * 0.8, 200);
