@@ -279,15 +279,17 @@
         return;
       }
 
-      // Send the patient to WhatsApp with the appointment details prefilled.
+      // Show the confirmation, then take the patient to WhatsApp with the
+      // appointment details prefilled. New tab if the browser allowed it,
+      // otherwise navigate the SAME tab (never popup-blocked; on phones this
+      // opens the WhatsApp app directly while the page stays on the card).
       const waUrl = waBookingUrl(appt);
-      if (waTab && !waTab.closed) {
-        try { waTab.location.href = waUrl; } catch (e) { window.open(waUrl, "_blank"); }
-      } else {
-        window.open(waUrl, "_blank");
-      }
-
       showDone(appt);
+      if (waTab && !waTab.closed) {
+        try { waTab.location.href = waUrl; } catch (e) { window.location.href = waUrl; }
+      } else {
+        window.location.href = waUrl;
+      }
     });
   }
 
