@@ -75,12 +75,11 @@
   function renderModePill() {
     if (!els.modePill) return;
     if (store.mode === "supabase") {
+      els.modePill.style.display = "";
       els.modePill.className = "mode-pill live";
       els.modePill.innerHTML = '<span class="dot"></span> Live availability';
     } else {
-      els.modePill.className = "mode-pill demo";
-      els.modePill.innerHTML = '<span class="dot"></span> Demo mode';
-      els.modePill.title = "Bookings are stored in this browser only. Add Supabase keys in config.js for real-time, cross-patient locking.";
+      els.modePill.style.display = "none"; // hide the demo-mode badge on the live site
     }
   }
 
