@@ -164,7 +164,6 @@ The site is plain static files, so any free host works. Easiest first:
 
 - 👩‍⚕️ **Dr. Sarika Jain** (interview aired on Sahara TV)
 - 📞 / WhatsApp: **9818670489**
-- ✉️ sarikatayaljain@yahoo.in
 - 📘 facebook.com/dental.clinic.east.delhi
 - 📍 UG-11, B-10, Surya Nagar, Ghaziabad-201011, UP (East Delhi border)
 - 🕒 Mon–Sat: 9:00 AM–2:30 PM & 5:00 PM–9:00 PM · Sun by prior appointment

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Male patient">
+  <circle cx="32" cy="32" r="32" fill="#e2f7f9"/>
+  <g fill="none" stroke="#0b8a99" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="24" r="8.5"/>
+    <path d="M16 51c0-9 7-13.5 16-13.5S48 42 48 51"/>
+  </g>
+</svg>
