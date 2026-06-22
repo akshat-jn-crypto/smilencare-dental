@@ -15,8 +15,8 @@ window.CLINIC = {
   /* ---- Booking engine settings (all configurable) ---- */
   booking: {
     // Working days the clinic accepts appointments.
-    // 0 = Sunday, 1 = Monday ... 6 = Saturday.  Default: Mon–Sat.
-    workingDays: [1, 2, 3, 4, 5, 6],
+    // 0 = Sunday, 1 = Monday ... 6 = Saturday.  Open all 7 days.
+    workingDays: [0, 1, 2, 3, 4, 5, 6],
 
     // How many days into the future patients can book.
     daysAhead: 30,
